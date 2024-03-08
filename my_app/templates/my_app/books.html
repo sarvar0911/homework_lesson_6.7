@@ -1,0 +1,40 @@
+<!--Books template-->
+
+{% extends "my_app/index.html" %}
+
+{% block content %}
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in ajoyib_kitoblar %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.price }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">Afsuski hozirda kitoblar mavjud emas.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
